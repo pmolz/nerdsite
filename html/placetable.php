@@ -12,7 +12,7 @@
   <div id="header"; style="flex-grow: 8"  class="grad1">
   <body>
     <h1 class="center">nerd's room</h1> 
-    <a href="http://129.213.52.131/"><img src="https://previews.123rf.com/images/djdarkflower/djdarkflower1302/djdarkflower130200043/18004249-home-button.jpg" style="width:100px">Home</img></a>
+    <a href="http://peter.molzer.net/"><img src="https://previews.123rf.com/images/djdarkflower/djdarkflower1302/djdarkflower130200043/18004249-home-button.jpg" style="width:100px">Home</img></a>
     
   </body>
   </div>
