@@ -1,0 +1,16 @@
+
+tr{
+  padding: .6rem;
+}
+td {
+  padding: .6rem;
+  background-color:gray;
+}
+
+table:hover {
+  cursor: pointer;
+}
+.g {
+  border:1px solid black;
+  border-radius:2px;
+}

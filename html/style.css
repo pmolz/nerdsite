@@ -1,0 +1,119 @@
+.center {
+  margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+p.center {
+  text-align:center;
+  color:#FF0000;
+}
+
+.large {
+  font-size:200%;
+}
+h1 {
+  text-shadow: 2px 2px red;
+  font-size: 50px;
+}
+h2 {
+  text-shadow: 1px 2px red;
+  font-size: 30px;
+}
+p {
+  font-size:150%;
+}
+.divhead {
+   background: linear-gradient(to bottom, #43C6AC 8%, #191654 50%);
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 19px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 7px;
+  border: 2px solid #FFFFFF;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  background-color: #8a0315; /* Green */
+}
+.button1 {
+  background-color: #FF0000;
+  
+}
+body {
+  background-color: #F4F6FF;
+}
+table {
+  font-size:200%;
+}
+.table_base {
+  background-color: #BDA9F7;
+  margin-left:auto;
+	margin-right:auto;
+}
+.table_base th {
+  background-color:#07031A;
+
+}
+.table_base td#button {
+  vertical-align: middle;
+  text-align: center;
+}
+table th#title {
+  background-color:#4F8A8B;
+	color:black;
+	text-align:center;
+	white-space:nowrap;
+  width:100%;
+	border-collapse: collapse;
+  padding-top:6px;
+	padding-left:6px;
+  padding-right:6px;
+}
+#header {
+  background-color:#FBD46D;
+}
+.iframe {
+  display:block;
+  margin-left:auto;
+	margin-right:auto;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 7px;
+  border: 2px solid #000000;
+  width:400px;
+  
+}
+.flex-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.flex-container div {
+  margin:10px;
+}
+.grad1{
+    background: linear-gradient(to bottom, #43C6AC 8%, #191654 50%);
+}
+.ani {
+  position: relative;
+  animation-name: example;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+  
+}
+@keyframes example {
+  0%   {left:0px; top:0px;}
+  25%  {left:400px; top:0px;}
+  50%  {left:400px; top:200px;}
+  75%  {left:0px; top:200px;}
+  100% {left:0px; top:0px;}
+}
