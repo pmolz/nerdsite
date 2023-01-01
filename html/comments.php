@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
   // Output the comments
   while($row = $result->fetch_assoc()) {
     echo "<div class='comment'>";
-    echo "<h2>" . $row['name'] . " said:</p>";
+    echo "<h2>" . $row['name'] . " said:</h2>";
     echo "<p>" . $row['comment'] . "</p>";
     echo "</div>";
   }
@@ -46,7 +46,7 @@ body {
 }
 h2 {
   text-shadow: 1px 2px red;
-  font-size: 30px;
+  font-size: 15px;
   text-color: #8B0000;
 }
 </style>
