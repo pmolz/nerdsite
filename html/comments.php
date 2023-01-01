@@ -1,3 +1,5 @@
+
+<header>
 <script src="/form-validation.js"></script>
 <form id="comment-form" action="handlecomments.php" method="post">
   <label for="name">Name:</label><br>
@@ -6,7 +8,8 @@
   <textarea id="comment" name="comment"></textarea><br><br>
   <input type="submit" value="Submit">
 </form> 
-
+</header>
+<body>
 <?php
 
 include 'dbconnect.php';
@@ -25,7 +28,7 @@ if ($result->num_rows > 0) {
   // Output the comments
   while($row = $result->fetch_assoc()) {
     echo "<div class='comment'>";
-    echo "<p>" . $row['name'] . " said:</p>";
+    echo "<h2>" . $row['name'] . " said:</p>";
     echo "<p>" . $row['comment'] . "</p>";
     echo "</div>";
   }
@@ -36,3 +39,14 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 ?>
+</body>
+<style>
+body {
+  background-color: #F4F6FF;
+}
+h2 {
+  text-shadow: 1px 2px red;
+  font-size: 30px;
+  text-color: #8B0000;
+}
+</style>
