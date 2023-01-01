@@ -23,7 +23,7 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 ?>
-<meta http-equiv="refresh" content="1; url='peter.molzer.net/comments.php'" />
+<meta http-equiv="refresh" content="1; url='comments.php'" />
 <a href="comments.php" title="just go back nerd">Go back to comments <a>
 
 <style>
