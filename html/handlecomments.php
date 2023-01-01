@@ -2,7 +2,6 @@
 
 include 'dbconnect.php';
 $conn = OpenCon();
-echo "connected success";
 
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -16,7 +15,7 @@ $comment = $conn->real_escape_string($_POST['comment']);
 $sql = "INSERT INTO comments (name, comment) VALUES ('$name', '$comment')";
 
 if ($conn->query($sql) === TRUE) {
-  echo "Comment added successfully";
+  echo "<h1>Comment added successfully</h1>";
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
@@ -24,3 +23,20 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 ?>
+<meta http-equiv="refresh" content="1; url='peter.molzer.net/comments.php'" />
+<a href="comments.php" title="just go back nerd">Go back to comments <a>
+
+<style>
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+</style>
