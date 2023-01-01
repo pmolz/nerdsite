@@ -28,9 +28,11 @@ if ($result->num_rows > 0) {
   // Output the comments
   while($row = $result->fetch_assoc()) {
     echo "<div class='comment'>";
-    echo "<h2>" . $row['name'] . " said:</h2>";
-    echo "<p>" . $row['comment'] . "</p>" . "<p text-align='right'>" . $row['created_at'] . "</p>";
-	echo "<hr>";
+	echo "<table>"
+    echo "<tr>" . "<td>" . "<h2>" . $row['name'] . " said:</h2>" . "</td></tr>";
+	echo "<tr>" . "<td" . "<p>" . $row['comment'] . "</p>" . "</td>";
+    echo "<td>" . "<p>" . $row['created_at'] . "</p></td>";
+	echo "</tr></table><hr>";
     echo "</div>";
   }
 } else {
