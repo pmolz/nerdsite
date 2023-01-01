@@ -45,7 +45,7 @@ body {
   background-color: #F4F6FF;
 }
 h2 {
-  text-shadow: 1px 2px red;
+  text-shadow: 1px 1px gray;
   font-size: 15px;
   text-color: #8B0000;
 }
