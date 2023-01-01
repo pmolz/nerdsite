@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "<div class='comment'>";
     echo "<h2>" . $row['name'] . " said:</h2>";
-    echo "<p>" . $row['comment'] . "</p>" . "<p text-align='left'>" . $row['created_at'] . "</p>";
+    echo "<p>" . $row['comment'] . "</p>" . "<p text-align='right'>" . $row['created_at'] . "</p>";
 	echo "<hr>";
     echo "</div>";
   }
