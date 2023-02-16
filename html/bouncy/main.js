@@ -26,6 +26,8 @@ class Ball {
     this.velY = velY;
     this.color = color;
     this.size = size;
+	this.bounceCooldown=5;
+	
   }
   draw() {
 	  ctx.beginPath();
@@ -62,8 +64,14 @@ class Ball {
 
 		  if (distance < this.size + ball.size) {
 			ball.color = this.color = randomRGB();
-			this.velX = -(ball.velX);
-			this.velY = -(ball.velY);
+			if (this.bounceCooldown == 0) {
+				this.velX = -(ball.velX);
+				this.velY = -(ball.velY);
+				this.bounceCooldown = 5;
+			} else {
+				this.bounceCooldown -= 1;
+			}
+			
 			
 		  }
 		  
