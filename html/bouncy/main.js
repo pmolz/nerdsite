@@ -83,8 +83,8 @@ canvas.addEventListener('mousemove',function(event) {
 });
 
 function animate() {
-	ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
-	ctx.fillRect(0, 0, W, H);
+	pen.fillStyle = "rgba(0, 0, 0, 0.25)";
+	pen.fillRect(0, 0, width, height);
 	cooldown++;
 	if(mouseDown && cooldown > 2) {
 		var r = Math.random()*20 + 10;
