@@ -1,7 +1,7 @@
 var canvas = document.querySelector('canvas');
 var pen = canvas.getContext('2d');
-const W = canvas.width;
-const H = canvas.height;
+const W = canvas.width = window.innerWidth;
+const H = canvas.height = window.innerHeight;
 
 var numBalls = 30;
 var grav = [0,-0.1];
