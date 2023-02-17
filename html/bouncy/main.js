@@ -1,114 +1,151 @@
-//setup canvas
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+var canvas = document.querySelector('canvas');
+var pen = canvas.getContext('2d');
+const W = canvas.width;
+const H = canvas.height;
 
-const width = canvas.width = window.innerWidth;
-const height = canvas.height = window.innerHeight;
+var numBalls = 30;
+var grav = [0,-0.1];
 
-//function to generate random number
-
-function random(min, max) {
-  const num = Math.floor(Math.random() * (max - min + 1)) + min;
-  return num;
-}
-
-//function to generate random color
-
-function randomRGB() {
-  return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
-}
-
-class Ball {
-  constructor(x, y, velX, velY, color, size) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-    this.color = color;
-    this.size = size;
-	this.bounceCooldown=5;
+function Ball(x,y,dx,dy,r) {
+	this.x = x;
+	this.y = y;
+	this.dx = dx;
+	this.dy = dy;
+	this.r = r;
+	this.color = 'hsl('+(Math.random()*360)+',90%,50%)';
 	
-  }
-  draw() {
-	  ctx.beginPath();
-	  ctx.fillStyle = this.color;
-	  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-	  ctx.fill();
+	this.draw = function() {
+		pen.fillStyle = this.color;
+		pen.beginPath();
+		pen.arc(this.x,this.y,this.r,0,2*Math.PI);
+		pen.fill();
 	}
-	update() {
-	  if ((this.x + this.size) >= width) {
-		this.velX = -(this.velX);
-	  }
-
-	  if ((this.x - this.size) <= 0) {
-		this.velX = -(this.velX);
-	  }
-
-	  if ((this.y + this.size) >= height) {
-		this.velY = -(this.velY);
-	  }
-
-	  if ((this.y - this.size) <= 0) {
-		this.velY = -(this.velY);
-	  }
-
-	  this.x += this.velX;
-	  this.y += this.velY;
-	}
-	collisionDetect() {
-	  for (const ball of balls) {
-		if (this !== ball) {
-		  const dx = this.x - ball.x;
-		  const dy = this.y - ball.y;
-		  const distance = Math.sqrt(dx * dx + dy * dy);
-
-		  if (distance < this.size + ball.size) {
-			
-			if (this.bounceCooldown == 0) {
-				this.velX = -(ball.velX);
-				this.velY = -(ball.velY);
-				this.bounceCooldown = 5;
-				ball.bounceCooldown = 5;
-				ball.color = this.color = randomRGB();
-			} else {
-				this.bounceCooldown -= 1;
-				ball.bounceCooldown -= 1;
-			}
-			
-			
-		  }
-		  
+	
+	this.update = function() {
+		this.x += this.dx;
+		this.y += this.dy;
+		this.dx += grav[0];
+		this.dy -= grav[1];
+		if(this.x > W - this.r) {
+			this.x = W - this.r;
+			this.dx *= -1;
+		} else if(this.x < this.r) {
+			this.x = this.r;
+			this.dx *= -1;
 		}
-	  }
+		if(this.y > H - this.r) {
+			this.y = H - this.r;
+			this.dy *= -0.7;
+		} else if(this.y < this.r) {
+			this.y = this.r + 1;
+			this.dy *= -0.7;
+		}
+		this.draw();
 	}
 }
-const balls = [];
 
-while (balls.length < 21) {
-  const size = random(10, 20);
-  const ball = new Ball(
-    // ball position always drawn at least one ball width
-    // away from the edge of the canvas, to avoid drawing errors
-    random(0 + size, width - size),
-    random(0 + size, height - size),
-    random(-7, 7),
-    random(-7, 7),
-    randomRGB(),
-    size
-  );
 
-  balls.push(ball);
+var balls = [];
+
+function reset() {
+	balls = [];
+	for(var i=0 ; i < numBalls ; i++) {
+		var x = Math.random()*W;
+		var y = Math.random()*H;
+		var r = Math.random()*20 + 7;
+		balls.push(new Ball(x,y, Math.random()*10 - 5, Math.random()*10 - 5,r));
+	}
 }
-function loop() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.25)";
-  ctx.fillRect(0, 0, width, height);
+reset();
 
-  for (const ball of balls) {
-    ball.draw();
-    ball.update();
-	ball.collisionDetect();
-  }
+window.addEventListener('keydown',function(key) {
+	if(key.code === 'Space') {
+		reset();
+	}
+});
 
-  requestAnimationFrame(loop);
+var mouseDown = false;
+var cooldown = 0;
+var mouse = {
+	x: undefined,
+	y: undefined
+};
+
+canvas.addEventListener('mousedown',function(event) {
+	mouseDown = true;
+});
+canvas.addEventListener('mouseup', function(event) {
+	mouseDown = false;
+});
+canvas.addEventListener('mousemove',function(event) {
+	mouse.x = event.x - 15;
+	mouse.y = event.y - 15;
+});
+
+function animate() {
+	pen.clearRect(0,0,W,H);
+	cooldown++;
+	if(mouseDown && cooldown > 2) {
+		var r = Math.random()*20 + 10;
+		balls.push(new Ball(mouse.x,mouse.y, Math.random()*10 - 5, Math.random()*10 - 5,r));
+		cooldown = 0;
+	}
+	for(var ball of balls) {
+		ball.update();
+		for(var ball2 of balls) { //Not the most efficient way to check every pair, but this is just a rough version
+			if(ball !== ball2) {
+				var collision = checkCollision(ball, ball2);
+				if(collision[0]) {
+					adjustPositions(ball,ball2,collision[1]);
+					resolveCollision(ball,ball2);
+				}
+			}
+		} 
+	}
+	requestAnimationFrame(animate);
 }
-loop();
+
+animate();
+
+function checkCollision(ballA, ballB) {
+	var rSum = ballA.r + ballB.r;
+	var dx = ballB.x - ballA.x;
+	var dy = ballB.y - ballA.y;
+	return [rSum*rSum > dx*dx + dy*dy,rSum-Math.sqrt(dx*dx+dy*dy)];
+}
+
+function resolveCollision(ballA, ballB) {
+	var relVel = [ballB.dx - ballA.dx,ballB.dy - ballA.dy];
+	var norm = [ballB.x - ballA.x, ballB.y - ballA.y];
+	var mag = Math.sqrt(norm[0]*norm[0] + norm[1]*norm[1]);
+	norm = [norm[0]/mag,norm[1]/mag];
+	
+	var velAlongNorm = relVel[0]*norm[0] + relVel[1]*norm[1];
+	if(velAlongNorm > 0)
+		return;
+	
+	var bounce = 0.7;
+	var j = -(1 + bounce) * velAlongNorm;
+	j /= 1/ballA.r + 1/ballB.r;
+	
+	var impulse = [j*norm[0],j*norm[1]];
+	ballA.dx -= 1/ballA.r * impulse[0];
+	ballA.dy -= 1/ballA.r * impulse[1];
+	ballB.dx += 1/ballB.r * impulse[0];
+	ballB.dy += 1/ballB.r * impulse[1];
+}
+
+function adjustPositions(ballA,ballB,depth) { //Inefficient implementation for now
+	const percent = 0.2;
+	const slop = 0.01;
+	var correction = (Math.max(depth - slop, 0) / (1/ballA.r + 1/ballB.r)) * percent;
+	
+	var norm = [ballB.x - ballA.x, ballB.y - ballA.y];
+	var mag = Math.sqrt(norm[0]*norm[0] + norm[1]*norm[1]);
+	norm = [norm[0]/mag,norm[1]/mag];
+	correction = [correction*norm[0],correction*norm[1]];
+	ballA.x -= 1/ballA.r * correction[0];
+	ballA.y -= 1/ballA.r * correction[1];
+	ballB.x += 1/ballB.r * correction[0];
+	ballB.y += 1/ballB.r * correction[1];
+}
