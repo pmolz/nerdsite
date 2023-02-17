@@ -63,12 +63,13 @@ class Ball {
 		  const distance = Math.sqrt(dx * dx + dy * dy);
 
 		  if (distance < this.size + ball.size) {
-			ball.color = this.color = randomRGB();
+			
 			if (this.bounceCooldown == 0) {
 				this.velX = -(ball.velX);
 				this.velY = -(ball.velY);
 				this.bounceCooldown = 5;
 				ball.bounceCooldown = 5;
+				ball.color = this.color = randomRGB();
 			} else {
 				this.bounceCooldown -= 1;
 				ball.bounceCooldown -= 1;
@@ -83,7 +84,7 @@ class Ball {
 }
 const balls = [];
 
-while (balls.length < 16) {
+while (balls.length < 21) {
   const size = random(10, 20);
   const ball = new Ball(
     // ball position always drawn at least one ball width
