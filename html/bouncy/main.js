@@ -68,8 +68,10 @@ class Ball {
 				this.velX = -(ball.velX);
 				this.velY = -(ball.velY);
 				this.bounceCooldown = 5;
+				ball.bounceCooldown = 5;
 			} else {
 				this.bounceCooldown -= 1;
+				ball.bounceCooldown -= 1;
 			}
 			
 			
