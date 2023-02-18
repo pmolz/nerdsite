@@ -13,19 +13,28 @@ function Ball(x,y,dx,dy,r) {
 	this.dy = dy;
 	this.r = r;
 	this.color = 'hsl('+(Math.random()*360)+',90%,50%)';
+	this.canMove = false;
 	
 	this.draw = function() {
 		pen.fillStyle = this.color;
 		pen.beginPath();
-		pen.arc(this.x,this.y,this.r,0,2*Math.PI);
+		
+		if (this.canMove) {
+			pen.arc(this.x,this.y,(this.r+1),0,2*Math.PI);
+		} else {
+			pen.arc(this.x,this.y,this.r,0,2*Math.PI);
+		}
 		pen.fill();
+		
 	}
 	
 	this.update = function() {
 		this.x += this.dx;
 		this.y += this.dy;
-		this.dx += grav[0];
-		this.dy -= grav[1];
+		if (!this.canMove) {
+			this.dx += grav[0];
+			this.dy -= grav[1];
+		} 
 		if(this.x > W - this.r) {
 			this.x = W - this.r;
 			this.dx *= -1;
@@ -42,6 +51,7 @@ function Ball(x,y,dx,dy,r) {
 		}
 		this.draw();
 	}
+	
 }
 
 
@@ -55,6 +65,12 @@ function reset() {
 		var r = Math.random()*20 + 7;
 		balls.push(new Ball(x,y, Math.random()*10 - 5, Math.random()*10 - 5,r));
 	}
+	var x = Math.random()*W;
+	var y = Math.random()*H;
+	var r = Math.random()*20 + 7;
+	badBall = new Ball(x,y, Math.random()*10 - 5, Math.random()*10 - 5,r)
+	badBall.canMove=true;
+	balls.push(badBall);
 }
 reset();
 
@@ -102,6 +118,24 @@ function animate() {
 				}
 			}
 		} 
+		if (ball.canMove) {
+			window.addEventListener("keydown", (e) => {
+			  switch (e.key) {
+				case "a":
+				  ball.dx-=.3;
+				  break;
+				case "d":
+				  ball.dx+=.3;
+				  break;
+				case "w":
+				  ball.dy-=1;
+				  break;
+				case "s":
+				  ball.dy+=1;
+				  break;
+				}
+			});
+		}
 	}
 	requestAnimationFrame(animate);
 }
