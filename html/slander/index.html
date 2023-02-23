@@ -74,17 +74,69 @@
 <script>
 	function doSlander() {
 		var unhingedArray = ['meh','unbased','rizzless','dumpyless','a neanderthol','dripless','addicted to caffine','projecting','still using a iphone 6','not a beer drinker','a brussel sprout enjoyer','a gum nibbler','a drunk','lacking goons'];
+		const negativeAdjectives = [
+									  'abhorrent',
+									  'atrocious',
+									  'bitter',
+									  'callous',
+									  'corrupt',
+									  'damaging',
+									  'deceitful',
+									  'defective',
+									  'deplorable',
+									  'detestable',
+									  'disastrous',
+									  'disgusting',
+									  'dreadful',
+									  'faulty',
+									  'foul',
+									  'fraudulent',
+									  'ghastly',
+									  'grim',
+									  'gross',
+									  'harmful',
+									  'hateful',
+									  'horrendous',
+									  'horrible',
+									  'inferior',
+									  'injurious',
+									  'loathsome',
+									  'malevolent',
+									  'malignant',
+									  'nasty',
+									  'noxious',
+									  'objectionable',
+									  'odious',
+									  'offensive',
+									  'pernicious',
+									  'poisonous',
+									  'repellent',
+									  'reprehensible',
+									  'repugnant',
+									  'rotten',
+									  'sickening',
+									  'sinister',
+									  'sordid',
+									  'toxic',
+									  'twisted',
+									  'unpleasant',
+									  'unsightly',
+									  'vile',
+									  'wicked',
+									  'woeful',
+									  'worthless'
+									];
 		var adjective=['attractive','bald','beautiful','chubby','clean','dazzling','drab','elegant','fancy','fit','flabby','glamorous','gorgeous','handsome','magnificent','muscular','plain','plump','scruffy','shapely','skinny','stocky','unkempt','unsightly','agreeable','ambitious','brave','calm','delightful','eager','faithful','gentle','happy','jolly','kind','lively','nice','obedient','polite','proud','silly','thankful','victorious','witty','wonderful','zealous','angry','bewildered','clumsy','defeated','embarrassed','fierce','grumpy','helpless','itchy','jealous','lazy','mysterious','nervous','obnoxious','panicky','repulsive','scary','thoughtless','uptight','worried','big','colossal','fat','gigantic','great','huge','immense','large','little','mammoth','massive','microscopic','petite','puny','scrawny','short','small','tall','teeny','tiny'];
 		var unhingedE = document.getElementById("slanderForm");
 		var name = "";
 		name += unhingedE.elements[0].value;
 		isUnhinged = document.getElementById("mySwitch");
-		var arrayNum = Math.floor(Math.random() * (adjective.length));
+		var arrayNum = Math.floor(Math.random() * (negativeAdjectives.length));
 		var unhingedNum = Math.floor(Math.random() * (unhingedArray.length));
 		if(isUnhinged.checked) {
 			document.getElementById("demo").innerHTML = (name + " is " + unhingedArray[unhingedNum]);
 		} else {
-			document.getElementById("demo").innerHTML = (name + " is " + adjective[arrayNum]);
+			document.getElementById("demo").innerHTML = (name + " is " + negativeAdjectives[arrayNum]);
 		}
 	}
 </script>
