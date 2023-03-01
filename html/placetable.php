@@ -58,9 +58,9 @@ $results = $conn->query($sql);
       } elseif ($value == 8) {
         $bg_color = 'violet';
       } elseif ($value == 9) {
-        $bg_color = 'white';
-      } elseif ($value == 0) {
         $bg_color = 'blue';
+      } elseif ($value == 0) {
+        $bg_color = 'white';
       } 
 
       // Output the current cell with the appropriate background color
