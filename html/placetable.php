@@ -82,7 +82,7 @@ CloseCon($conn);
   <div id="selcet" onclick="select(event)">
   <table id="selectiontable"> 
     <tr> 
-      <td class = "g" style="background-color:blue; border:4px solid black;"> 
+      <td class = "g" style="background-color:white; border:4px solid black;"> 
       <td class = "g" style="background-color:black"> 
       <td class = "g" style="background-color:yellow"> 
       <td class = "g" style="background-color:green"> 
@@ -91,7 +91,7 @@ CloseCon($conn);
       <td class = "g" style="background-color:red"> 
       <td class = "g" style="background-color:pink"> 
       <td class = "g" style="background-color:violet"> 
-      <td class = "g" style="background-color:white">  
+      <td class = "g" style="background-color:blue">  
     </tr>
     </table> 
   </div>
