@@ -1,6 +1,6 @@
 //Iterate through all cells
 
-var color = "white";
+var color = "blue";
 function select(e) {
   if(e.target.tagName=="TD"){
       
@@ -38,7 +38,7 @@ function changeColor(e){
     cid = 7;
   } else if (color == 'violet') {
     cid = 8;
-  } else if (color == 'blue') {
+  } else if (color == 'white') {
     cid = 9;
   } 
 
