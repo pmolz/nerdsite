@@ -68,9 +68,6 @@ $results = $conn->query($sql);
     }
     echo '</tr>';
   }
-  
-
-
 
 CloseCon($conn);
 ?>
