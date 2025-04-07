@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .navbar {
+            background-color: #4a90e2;
+        }
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: bold;
+        }
+        .navbar-toggler {
+            border-color: #fff;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #4a90e2, #50c9c3);
+            color: #fff;
+            padding: 3rem 0;
+        }
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+        }
+        .details-section {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .details-section h2 {
+            color: #4a90e2;
+        }
+        footer {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        img {
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="portfolio.html">Engineering Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1>Spinny Boi 3001</h1>
+            <p class="lead">3lb Ring Spinner</p>
+        </div>
+    </section>
+
+    <!-- Project Details Section -->
+    <section class="py-5">
+        <div class="container details-section">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="https://i.imgur.com/QRYvDk7.jpeg" class="d-block w-100" alt="Project Image 1">
+                </div>
+                <div class="col-md-7">
+                    <h2>Project Overview</h2>
+                    <p>This is the second version of our robot, where we made some big improvements based on what we learned from the first design.</p>
+                    <p>The outer ring is now made from two thick aluminum halves, giving it better durability and balance. We also upgraded the shuffler system for smoother movement, and the inner gear ring is now fully enclosed within the blade for added protection.</p>
+                </div>
+
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h3>Improvements from V1</h3>
+                    <ul>
+                        <li>Replaced mild steel sandwich with two solid aluminum rings</li>
+                        <li>Upgraded shuffler system for durability, metal feet inserts cannot fall out now, as they go around the cam</li>
+                        <li>Fully enclosed inner gear ring for better protection</li>
+                        <li>Improved bearing stack for less friction</li>
+                        <li>Improved wiring management (still needs help)</li>
+                    </ul>
+                </div>
+            </div>
+            <h1>Ring manufacturing</h1>
+
+            Cad mockup:
+            <img src="https://i.imgur.com/QCBe51K.png" class="d-block" alt="cad mockup" style="object-fit: cover; width: 500px; height: 300px;">
+            <br>
+            <p>Before machining, 6061 aluminum ring cut with waterjet. This provides the bulk of the spinning mass. Hardened steel insert added later.</p> 
+            
+            <img src="https://i.imgur.com/i0SNEIp.jpeg" class="d-block" alt="ring cutout" style="object-fit: cover; width: 500px; height: 500px;">
+            <br>
+            <p> Machining to add extra features:</p>
+            <img src="https://i.imgur.com/IYd01Hc.jpeg" class="d-block" alt="machining process" style="object-fit: cover; width: 500px; height: 500px;">
+            
+            <p>In addition to the aluminum, a S7 hardenend steel impactor is slotted into the edge during assembly, as well as a counterweight on the other side. Mounting for these in the aluminum was a failure point later on</p>
+
+            <br><br><br>
+            <h1>Shuffler</h1>
+            <p>We used a cam system to move the shuffler. The cam is made from 6061 aluminum, and the shuffler housing is made from 3D printed nylon.</p>
+            <p>The feet themselves are waterjet from titanium, as thats what we had available in the correct thickness. Spring steel is preferred because its harder</p>
+            <img src="https://i.imgur.com/byPR26g.png" style="object-fit: cover; width: 600px; height: 400px;" alt="shuffer cad">
+            <p>Notice the cam, there are 4 of these, each with with two feet attached. One faces up and the other down so we can handle being upside down. </p>
+            <p>The slot on the top of the feet interacts with a rod, constraining the feet into their elliptical motion.</p>
+            <img src="https://i.imgur.com/q5iAlaQ.jpeg" alt="shuffer cad" style="object-fit: cover; width: 600px; height: 300px; object-position: top;">
+            <p>Another angle</p>
+            <img src="https://i.imgur.com/Xg0kUZp.jpeg" style="object-fit: cover; width: 600px; height: 400px;" alt="">
+            <br><br><br>
+            <h1>Electrical</h1>
+            <p>The robot runs on a 4s LIHV battery, fully charged it runs at 17ish volts. 3x weapon motors driven by 60A 4-in-1 esc (hard to find ). We only use 3 channels for the 3 motors. </p>
+            <p>3x brushless geared drive motors come from Repeat Robotics. More on issues with those later.</p>
+            <p>Uses FRsky RC protocol due to its connectivity to the Q X7 transceiver. This fancy remote allows for more mixing than a traditional Flysky. Maths for vectoring explained later.</p>
+            <p>In the future, a PCB would be helpful for wire management.</p>
+
+            <p>Motors going in:</p>
+            <img src="https://i.imgur.com/MayPwMx.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
+
+            <p>Basically everything else:</p>
+            <img src="https://i.imgur.com/cPQVn66.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
+
+            <h1>NHRL April 5th</h1>
+            <h3><a rel="stylesheet" href="https://truefinals.com/tournament/nhrl_apr25_3lb/playerpath/dde78b495d83474d"> Player card</a></h3>
+
+
+            <h2>First matchup against a beater-bar type robot called Blunder</h2>
+            <p>We lost this fight, but it was a good learning experience. The robot was not able to spin up to speed, and the shuffler system was not working properly.</p>
+            <p>Notably, the bearing stackup failed quickly because of a design oversight where two M5 screws met in the middle of the bearing mount, allowing for a weak point where the plastic was all that held the bearings. This allowed for upward loads (like those coming from this beater bar) to break the bearing mount and cause the blade to seize up.</p>
+
+            <img src="https://i.imgur.com/vf5QSdI.jpeg" style="object-fit: cover; width: 500px; height: 700px;" alt="">
+            <p>Sorry, no images of the battle yet, will add later</p>
+
+            <h2>First actual win against horizontal spinner called Meringue</h2>
+            <p>This was a better matchup for us, since loads weren't side loading the ring bearings. Instead, they are loaded radially like intended for skateboard bearings</p>
+
+            <iframe width="420" height="315"
+            src="https://youtu.be/Oq_eeJsjxtM">
+            </iframe> 
+
+            <h2>Loss against Scottie's Scrambler</h2>
+            <p>Another beater bar robot, this went even first once the blade stopped spinning. In the below images, you can see the havoc wrecked by the upwards forces</p>
+
+            <img src="https://i.imgur.com/MiCjScJ.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
+            <img src="https://i.imgur.com/dgbtdBA.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
+           
+            <img src="https://i.imgur.com/q5iAlaQ.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
+            
+            <h1>Improvements for next time</h1>
+            <p>We need to make the bearing stackup more robust, and add a better way to mount the ring. The current method is not strong enough to handle the forces from the beater bar.</p>
+            <p>We also need to add a better way to manage the wires, as they are currently just hanging out in the open. This is not ideal for a combat robot.</p>
+            <p>We need to add a better way to mount the shuffler system, as it is currently just pinned in place on the sides. This allows it to take unnecessary forces when it could just be soft mounted instead by floating between the shells..</p>
+            
+            <ul>
+                <li>Thru bolts or better bearing mounts. Should prevent seperation of the bearings</li>
+                <li>Durable shufflers, and mounting them better</li>
+                <li>Thicker shuffler rod, it got bent in one of the battles</li>
+                <li>Battery protection from gear in close proximity. We had an instanace of the gear tilting and getting chewed up</li>
+                <li>Improved switch placement, caused unnecessary wire lengths and could improve the space management</li>
+                <li>Better ring halves attachment. More screws or thicker ones</li>
+            </ul>
+            
+            <p>Design wise, it would be smart to angle the bearings outwards and have them constrain the ring from the inside, allowing for upwards forces to be directed into the proper load direction for these bearings. Alternatively, somehow make the entire blade into a thrust bearing.</p>
+
+            
+
+            <h2>Misc issues</h2>
+            <h3>Gear Issues</h3>
+            <p>We encountered issues with the gears on the brushless drive motors. The epoxy used to secure them was faulty, causing the gears to come loose during operation. we applied JB Weld the night before the competition to reinforce the connection.</p>
+            <img src="https://i.imgur.com/u2u1wSn.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="Gear with JB Weld">
+
+
+
+        <h3>Final thoughts</h3>
+        <p>Theres alot of images and stuff left out here, Im sorry!. Our switch to the aluminum ring instead of stacked steel was a good call, and gave the robot the structural support it needed </p>
+        <p>I learned alot about machining, material selection, high power electronics, and control systems from this. Theres so much I havent touched on yet, namely the manner in which we are controlling the three motors to move in the direction of the joystick. Check back later to see if i end up explaining that</p>
+    
+    
+    
+    
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Peter Molzer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
