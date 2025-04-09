@@ -129,12 +129,16 @@
             <p>Another angle</p>
             <img src="https://i.imgur.com/Xg0kUZp.jpeg" style="object-fit: cover; width: 600px; height: 400px;" alt="">
             <br><br><br>
+
+
             <h1>Electrical</h1>
             <p>The robot runs on a 4s LIHV battery, fully charged it runs at 17ish volts. 3x weapon motors driven by 60A 4-in-1 esc (hard to find ). We only use 3 channels for the 3 motors. </p>
             <p>3x brushless geared drive motors come from Repeat Robotics. More on issues with those later.</p>
             <p>Uses FRsky RC protocol due to its connectivity to the Q X7 transceiver. This fancy remote allows for more mixing than a traditional Flysky. Maths for vectoring explained later.</p>
             <p>In the future, a PCB would be helpful for wire management.</p>
-
+            
+            <h3>Wiring Diagram</h3>
+            <img src="wiring.jpg" style="object-fit: cover;width: 1200px;" alt="">
             <p>Motors going in:</p>
             <img src="https://i.imgur.com/MayPwMx.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
 
@@ -155,18 +159,28 @@
             <h2>First actual win against horizontal spinner called Meringue</h2>
             <p>This was a better matchup for us, since loads weren't side loading the ring bearings. Instead, they are loaded radially like intended for skateboard bearings</p>
 
-            <iframe width="420" height="315"
-            src="https://youtu.be/Oq_eeJsjxtM">
-            </iframe> 
+            <iframe style="width: 1000px;height: 700px" src="https://www.youtube.com/embed/Oq_eeJsjxtM" title="Spinnyboi3001 vs. Meringue win" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <h2>Loss against Scottie's Scrambler</h2>
-            <p>Another beater bar robot, this went even first once the blade stopped spinning. In the below images, you can see the havoc wrecked by the upwards forces</p>
+            <p>Another beater bar robot, this did not end well once the blade stopped spinning.</p>
 
+            <iframe style="width: 1000px;height: 700px" src="https://www.youtube.com/embed/qAVHfw6xgCY" title="Spinny Boi 3001 vs. Scottie&#39;s Scrambler" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <h3>Aftermath:</h3>
             <img src="https://i.imgur.com/MiCjScJ.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
             <img src="https://i.imgur.com/dgbtdBA.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
            
             <img src="https://i.imgur.com/q5iAlaQ.jpeg" style="object-fit: cover; width: 500px; height: 500px;" alt="">
             
+            <h4>Notes from this fight</h4>
+            <ul>
+                <li>Movement uncontrollable when blade spinning, unbalanced most likely</li>
+                <li>Weapon tip nearly seperated from ring, bent ring apart stopping rotation</li>
+                <li>Shufflers shatter under seemingly little load</li>
+
+            </ul>
+
+
             <h1>Improvements for next time</h1>
             <p>We need to make the bearing stackup more robust, and add a better way to mount the ring. The current method is not strong enough to handle the forces from the beater bar.</p>
             <p>We also need to add a better way to manage the wires, as they are currently just hanging out in the open. This is not ideal for a combat robot.</p>
